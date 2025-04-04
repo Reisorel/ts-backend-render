@@ -1,21 +1,12 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 // backend /seeds/treeSeeds.ts
 const tree_1 = __importDefault(require("../models/tree"));
-const treeSeeds = () => __awaiter(void 0, void 0, void 0, function* () {
-    yield tree_1.default.deleteMany(); // Supprime tous les projets existants
+const treeSeeds = async () => {
+    await tree_1.default.deleteMany(); // Supprime tous les projets existants
     const trees = [
         {
             name: "Chêne",
@@ -66,7 +57,7 @@ const treeSeeds = () => __awaiter(void 0, void 0, void 0, function* () {
             imageUrl: "https://example.com/images/weeping-willow.jpg",
         },
     ];
-    yield tree_1.default.insertMany(trees);
+    await tree_1.default.insertMany(trees);
     console.log(`🌳 ${trees.length} trees added sucessfully !`);
-});
+};
 exports.default = treeSeeds;
