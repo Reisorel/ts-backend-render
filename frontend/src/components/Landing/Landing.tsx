@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import type { JSX } from "react";
 // const API_BASE_URL = 'http://localhost:3000';
-const API_BASE_URL = 'https://ts-backend-render.onrender.com';
-// import API_BASE_URL from '../../../config/api';
+// const API_BASE_URL = 'https://ts-backend-render.onrender.com';
+import API_BASE_URL from '../../../config/api';
 
 
 import "./Landing.css";

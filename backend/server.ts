@@ -14,10 +14,6 @@ connectDB(); // Connexion à MongoDB
 app.use(cors());
 app.use(express.json());
 
-// Détection de l'environnement et configuration de l'URL de base
-const apiBaseUrl = process.env.NODE_ENV === "production"
-  ? 'https://ts-backend-render.onrender.com'
-  : 'http://localhost:3000';
 
 // ⬇️ Route API admin centralisée ici
 app.use('/api/admin', adminRoutes);
@@ -30,8 +26,8 @@ app.get("*", (req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, "../frontend/dist", "index.html"));
 });
 
-// Lancement du serveur
 const PORT = process.env.PORT || 3000;
+
 app.listen(PORT, () => {
-  console.log(`✅ Server is running on ${apiBaseUrl}`);
+  console.log(`✅ Server is running on port http://localhost:${PORT}`);
 });
