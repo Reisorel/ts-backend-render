@@ -13,7 +13,7 @@ const getAllTrees = async (req, res) => {
             res.status(404).json({ message: "No trees found" });
             return;
         }
-        res.status(200).json(trees);
+        res.status(200).json({ trees });
     }
     catch (error) {
         res.status(500).json({ message: "Error fetching trees", error });
